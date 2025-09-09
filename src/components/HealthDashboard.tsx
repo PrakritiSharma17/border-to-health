@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarDays, Heart, MapPin, Video, Bell } from "lucide-react";
 import { HealthMap } from "./HealthMap";
 import { DigitalHealthCard } from "./DigitalHealthCard";
+import InteractiveHealthMap from "./InteractiveHealthMap";
 import { useState } from "react";
 
 export const HealthDashboard = () => {
@@ -201,7 +202,7 @@ export const HealthDashboard = () => {
           </div>
         )}
 
-        {activeTab === "map" && <HealthMap />}
+        {activeTab === "map" && <InteractiveHealthMap />}
         {activeTab === "health-card" && <DigitalHealthCard />}
       </main>
     </div>
