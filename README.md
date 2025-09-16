@@ -1,73 +1,133 @@
-# Welcome to your Lovable project
 
-## Project info
+ 🌍 Migrant Health Record System
 
-**URL**: https://lovable.dev/projects/7d2bf6e1-7f65-44a0-82cd-e1ef42c5369f
+A **full-stack healthcare solution** for migrants, foreigners, and returning citizens.
+It integrates **doctor appointments, health records, outbreak tracking, notifications, and video consultations** into one secure system.
 
-## How can I edit this code?
+This repo contains both **backend (FastAPI + MongoDB)** and **frontend (React Native with maps)**.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+* 🏥 **Doctor Appointments** → Book, manage, and get reminders
+* 💊 **Medicine Reminders** → Smart notifications (Firebase + SMS)
+* 🎥 **Video Consultations** → Integrated with Twilio
+* 🌍 **Map Integration**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7d2bf6e1-7f65-44a0-82cd-e1ef42c5369f) and start prompting.
+  * Nearby hospitals shown on map
+  * Outbreak zones highlighted in red circles
+* 📖 **Health Record Management**
 
-Changes made via Lovable will be committed automatically to this repo.
+  * Linked with **ABHA APIs** for secure health record storage
+  * Blockchain concept for tamper-proof logs
+* 🔔 **Notifications** → Push & SMS
+* 🌐 **Multilingual support** → Migrant-friendly interface
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Backend
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* **FastAPI** (Python)
+* **MongoDB** for data storage
+* **JWT Auth** for security
+* APIs for hospitals, outbreaks, appointments, notifications
 
-Follow these steps:
+### Frontend
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* **React Native** (cross-platform mobile app)
+* **React Native Maps** for hospital & outbreak visualization
+* **Axios** for API communication
+* **Firebase** for push notifications
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📂 Project Structure
+migrant-health-system/
+│
+├── backend/                 # FastAPI backend
+│   ├── main.py              # Main FastAPI app
+│   ├── requirements.txt     # Python dependencies
+│   └── ...                  
+│
+├── frontend/                # React Native app
+│   ├── App.js               # Main mobile app
+│   ├── package.json         # Node dependencies
+│   └── ...
+│
+└── README.md
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## ⚡ Getting Started
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/migrant-health-system.git
+cd migrant-health-system
 ```
 
-**Edit a file directly in GitHub**
+### 2️⃣ Backend Setup
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+* Runs on: **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+* API docs: **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
 
-**Use GitHub Codespaces**
+Frontend Setup
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+cd frontend
+npm install
+npx react-native run-android   # for Android
+npx react-native run-ios       # for iOS (Mac only)
+```
 
-This project is built with:
+* Backend URL in emulator: use **[http://10.0.2.2:8000](http://10.0.2.2:8000)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Map API Demo
 
-## How can I deploy this project?
+* Hospitals are shown as **blue markers**
+* Outbreak zones are shown as **red circles**
 
-Simply open [Lovable](https://lovable.dev/projects/7d2bf6e1-7f65-44a0-82cd-e1ef42c5369f) and click on Share -> Publish.
+Hospital Example
 
-## Can I connect a custom domain to my Lovable project?
+```json
+POST /api/map/hospitals
+{
+  "name": "AIIMS Delhi",
+  "lat": 28.5672,
+  "lng": 77.2100,
+  "address": "AIIMS Campus, Delhi"
+}
 
-Yes, you can!
+```json
+POST /api/map/outbreaks
+{
+  "disease": "Dengue",
+  "lat": 28.60,
+  "lng": 77.20,
+  "radius": 5000
+}
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔒 Security
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+* JWT-based authentication
+* End-to-end encryption for video consultations
+* Blockchain-based logs for tamper-proof medical records
+
+
+## 🚀 Future Enhancements
+
+* Integrate with **ABHA APIs** for real records
+* AI-powered **personalized health alerts**
+* Twilio-based **video consultation screen**
+* Firebase Cloud Messaging for live notifications
+* Multi-language UI for migrant adoption
+
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+Please open an issue first to discuss proposed changes.
+
+
+
